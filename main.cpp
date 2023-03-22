@@ -2,47 +2,10 @@
 #include <cstdlib>
 
 
-
-
 using namespace std;
 
-char GetCompInput()
-{
-     srand (time(NULL));
-    int comp = rand() % 3;
-    
-    switch(comp)
-    {
-        case 0:
-            return 'R';
-        break;
-        
-        case 1:
-            return 'P';
-        break;
-        
-        case 2:
-            return 'S';
-        break;
-    }
-    
-    return 'Q';
-}
-
-char GetUserInput(char& Userinput)
-{
-   
-    cout <<"Please Enter R, P, S, or Q " <<endl;
-    cin >> Userinput;
-        
-   // cout << Userinput <<endl;
-  
-    if(Userinput != 'R' && Userinput != 'P' && Userinput != 'S' &&  Userinput != 'Q' )
-       GetUserInput(Userinput);
-  
-    return Userinput;
-}
-
+char GetCompInput();
+char GetUserInput(char& Userinput);
 
 int main()
 {
@@ -97,4 +60,44 @@ int main()
    
     return 0;
 }
+
+char GetCompInput()
+{
+     srand (time(NULL));
+    int comp = rand() % 3;
+    
+    switch(comp)
+    {
+        case 0:
+            return 'R';
+        break;
+        
+        case 1:
+            return 'P';
+        break;
+        
+        case 2:
+            return 'S';
+        break;
+    }
+    
+    return 'Q';
+}
+
+char GetUserInput(char& Userinput)
+{
+   
+    cout <<"Please Enter R, P, S, or Q " <<endl;
+    cin >> Userinput;
+        
+   // cout << Userinput <<endl;
+  
+    if(Userinput != 'R' && Userinput != 'P' && Userinput != 'S' &&  Userinput != 'Q' )
+       GetUserInput(Userinput);
+  
+    return Userinput;
+}
+
+
+
 
