@@ -7,39 +7,54 @@
 using namespace std;
 
 char GetCompInput();
+char GetLoginInput(char& UserInput);
 char GetInitInput(char& Userinput);
-char GetUserInput(char& Userinput);
+char GetPlayInput(char& Userinput);
 
 int main()
 {
-    char Userinput;
-    Userinput =  GetInitInput(Userinput);
-
-    switch(Userinput)
+    char UserInput;
+    UserInput = GetLoginInput(UserInput);
+    switch(UserInput)
     {
-    /*
         case 'L':
-        
-        string FileName;
-        cout << "Please Enter File Name" <<endl;
-        cin >> FileName;
-        User user;      
-	      user.ListUsers(FileName);
 
-    break; 
+
+            string UserName = "";
+            cout << "Please Enter User Name" << '\n';
+            cin >> UserName;
+            User user; 
+            user.FindUser(UserName);
+	          cout <<	user.FindUser(UserName);     
+
+	          if(user.FindUser(UserName) == true )
+           {
+		          cout <<"found";
+
+           }
+
+
+        break;
+    }
+        UserInput =  GetInitInput(UserInput);
+        switch(UserInput)
+        {
+        /*
+        case 'L':
+            break; 
     */
     case 'B': 
     
-    while ( Userinput != 'Q')
+    while ( UserInput != 'Q')
     {
               
-	Userinput = GetUserInput(Userinput) ;
+	UserInput = GetPlayInput(UserInput) ;
         char CompChoice = GetCompInput();
 
                
-        cout << "Userinput:" <<Userinput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
+        cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
 	
-          switch(Userinput)
+          switch(UserInput)
             {
                case 'Q':
                   return 0;
@@ -74,9 +89,8 @@ int main()
                     cout <<"You Win" <<endl;
                break;
         
-           }
-       
-      
+           } 
+     
       }
        break;
     
@@ -85,6 +99,50 @@ int main()
 
    
     return 0;
+}
+
+
+char GetLoginInput(char& UserInput)
+{
+    cout <<"Please Enter L to login" <<'\n';
+  cout <<"Please Enter l to list Players" << '\n';
+   
+    cin >> UserInput;
+  if(UserInput != 'L' && UserInput != 'l')
+       GetLoginInput(UserInput);
+ 
+
+  return UserInput; 
+}
+
+char GetInitInput(char& UserInput)
+{
+   
+    cout <<"Please Enter p to start game" << '\n';
+   
+    cin >> UserInput;
+        
+   // cout << Userinput <<endl; debug
+  
+    if(UserInput != 'p' )
+       GetInitInput(UserInput);
+  
+    return UserInput;
+}
+
+char GetPlayInput(char& UserInput)
+{
+   
+    cout <<"Please Enter R for rock, P for paper, S for Scissors, or Q to quit game" <<endl;
+    
+    cin >> UserInput;
+        
+   // cout << Userinput <<endl;
+  
+    if(UserInput != 'R' && UserInput != 'P' && UserInput != 'S' &&  UserInput != 'Q')
+       GetPlayInput(UserInput);
+  
+    return UserInput;
 }
 
 char GetCompInput()
@@ -108,37 +166,6 @@ char GetCompInput()
     }
     
     return 'Q';
-}
-
-
-char GetInitInput(char& Userinput)
-{
-   
-    cout <<"Please Enter B or L" << '\n';
-    cin >> Userinput;
-        
-   // cout << Userinput <<endl;
-  
-    if(Userinput != 'B' && Userinput != 'L')
-       GetInitInput(Userinput);
-  
-    return Userinput;
-}
-
-
-
-char GetUserInput(char& Userinput)
-{
-   
-    cout <<"Please Enter R, P, S, or Q " <<endl;
-    cin >> Userinput;
-        
-   // cout << Userinput <<endl;
-  
-    if(Userinput != 'R' && Userinput != 'P' && Userinput != 'S' &&  Userinput != 'Q')
-       GetUserInput(Userinput);
-  
-    return Userinput;
 }
 
 

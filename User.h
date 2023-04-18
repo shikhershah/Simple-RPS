@@ -9,8 +9,11 @@ class User{
 
 public:
 
-void ListUsers(std::string& FileName);
+User();
 
+
+void ListUsers(std::string& FileName);
+bool FindUser(std::string& UserName);
 
 };
 
