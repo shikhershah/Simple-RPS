@@ -22,35 +22,35 @@ int main()
     {
      case 'L':
 
-
-            cout << "Please Enter User Name" << '\n';
-            cin >> UserName;
+         cout << "Please Enter User Name" << '\n';
+         cin >> UserName;
            
-            if(user.FindUser(UserName)){
+         if(user.FindUser(UserName))
+         {
 
-                            UserInput =  GetInitInput(UserInput);
-        switch(UserInput)
-        {
+             UserInput =  GetInitInput(UserInput);
+             switch(UserInput)
+             {
         /*
         case 'L':
             break; 
     */
-    case 'p': 
+              case 'p': 
     
-    while ( UserInput != 'Q')
-    {
+                 while ( UserInput != 'Q')
+                 {
               
-	UserInput = GetPlayInput(UserInput) ;
-        char CompChoice = GetCompInput();
+	             UserInput = GetPlayInput(UserInput) ;
+                     char CompChoice = GetCompInput();
 
                
-        cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
+                     cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
 	
-          switch(UserInput)
-            {
-               case 'Q':
-                  return 0;
-               break;
+                     switch(UserInput)
+                     {
+                         case 'Q':
+                             return 0;
+                         break;
             
                case 'R':
                   if(CompChoice == 'P')
@@ -81,19 +81,28 @@ int main()
                     cout <<"You Win" <<endl;
                break;
         
-           } 
+                     } 
      
-      }
-       break;
-    
-    }
-	    }
-	          cout <<	user.FindUser(UserName);     
+                  }
+            break;
+ 
+            case 'l':
+               
+	          user.ListUsers();	
+	   break;
+           /*    default:
 
+		cout << "please Enter p or l" <<'\n';
+               break;
+    */
+           }
+         }
+            else
+             cout << "Please enter different name:" << '\n' ;
 	         
         break;
 
-	case 'l':
+	case 'C':
              user.ListUsers();
 
 	break;
@@ -109,10 +118,10 @@ int main()
 char GetLoginInput(char& UserInput)
 {
     cout <<"Please Enter L to login" <<'\n';
-  cout <<"Please Enter l to list Players" << '\n';
+    cout <<"Please Enter C to create Player" << '\n';
    
     cin >> UserInput;
-  if(UserInput != 'L' && UserInput != 'l')
+  if(UserInput != 'L' && UserInput != 'C')
        GetLoginInput(UserInput);
  
 
@@ -123,12 +132,12 @@ char GetInitInput(char& UserInput)
 {
    
     cout <<"Please Enter p to start game" << '\n';
-   
+    cout << "Please Enter l to list players" << '\n';
     cin >> UserInput;
         
    // cout << Userinput <<endl; debug
   
-    if(UserInput != 'p' )
+    if(UserInput != 'p' && UserInput != 'l' )
        GetInitInput(UserInput);
   
     return UserInput;
