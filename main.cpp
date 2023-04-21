@@ -33,7 +33,7 @@ int main()
              UserInput =  GetInitInput(UserInput);
              switch(UserInput)
              {
-        /*
+       /*
         case 'L':
             break; 
     */
