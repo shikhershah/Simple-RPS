@@ -28,26 +28,14 @@ int main()
            
             if(user.FindUser(UserName)){
 
-			cout << "found:" <<'\n';
-	    }
-	          cout <<	user.FindUser(UserName);     
-
-	         
-        break;
-
-	case 'l':
-             user.ListUsers();
-
-	break;
-    }
-        UserInput =  GetInitInput(UserInput);
+                            UserInput =  GetInitInput(UserInput);
         switch(UserInput)
         {
         /*
         case 'L':
             break; 
     */
-    case 'B': 
+    case 'p': 
     
     while ( UserInput != 'Q')
     {
@@ -99,6 +87,18 @@ int main()
        break;
     
     }
+	    }
+	          cout <<	user.FindUser(UserName);     
+
+	         
+        break;
+
+	case 'l':
+             user.ListUsers();
+
+	break;
+    }
+    
     //cout<<"Hello World";
 
    

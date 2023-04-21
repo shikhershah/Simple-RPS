@@ -82,11 +82,10 @@ bool User::FindUser(std::string& UserName)
 
    while(getline(FileRead, ReadText))
    {
-      std::cout << ReadText <<'\n'; 
+//      std::cout << ReadText <<'\n'; 
 
       if(ReadText == UserName)
       {
-         std::cout <<"Found " <<UserName  <<'\n';
          return true;
       }
       else
