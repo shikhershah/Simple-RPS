@@ -14,27 +14,31 @@ char GetPlayInput(char& Userinput);
 int main()
 {
     char UserInput;
+    string UserName = "";
+    User user; 
+    
     UserInput = GetLoginInput(UserInput);
     switch(UserInput)
     {
-        case 'L':
+     case 'L':
 
 
-            string UserName = "";
             cout << "Please Enter User Name" << '\n';
             cin >> UserName;
-            User user; 
-            user.FindUser(UserName);
+           
+            if(user.FindUser(UserName)){
+
+			cout << "found:" <<'\n';
+	    }
 	          cout <<	user.FindUser(UserName);     
 
-	          if(user.FindUser(UserName) == true )
-           {
-		          cout <<"found";
-
-           }
-
-
+	         
         break;
+
+	case 'l':
+             user.ListUsers();
+
+	break;
     }
         UserInput =  GetInitInput(UserInput);
         switch(UserInput)

@@ -26,16 +26,45 @@ void User::ListUsers(std::string& FileName)
    while(getline(FileRead, ReadText))
    {
       std::cout << ReadText <<'\n'; 
-
-/*      if(ReadText.find("end"))
+/*
+      if(ReadText.find(UserName))
       {
-         std::cout <<"Found End" <<'\n';
+         std::cout <<"Found" <<'\n';
       }
 */
    } 
 
    FileRead.close();     
 }
+
+void User::ListUsers()
+{
+  std::string ReadText;
+  std::ifstream FileRead;
+
+   FileRead.open("User.txt");
+
+   if(!FileRead)
+   {
+      std::cout << "File Not Found" <<'\n';  
+      return;
+   }  
+
+   while(getline(FileRead, ReadText))
+   {
+      std::cout << ReadText <<'\n'; 
+/*
+      if(ReadText.find(UserName))
+      {
+         std::cout <<"Found" <<'\n';
+      }
+*/
+   } 
+
+   FileRead.close();     
+}
+
+
 
 
 bool User::FindUser(std::string& UserName)
@@ -55,7 +84,7 @@ bool User::FindUser(std::string& UserName)
    {
       std::cout << ReadText <<'\n'; 
 
-      if(ReadText.find(UserName))
+      if(ReadText == UserName)
       {
          std::cout <<"Found " <<UserName  <<'\n';
          return true;

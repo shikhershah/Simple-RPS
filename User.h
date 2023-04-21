@@ -11,8 +11,8 @@ public:
 
 User();
 
-
 void ListUsers(std::string& FileName);
+void ListUsers();
 bool FindUser(std::string& UserName);
 
 };
