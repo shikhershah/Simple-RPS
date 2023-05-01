@@ -6,9 +6,13 @@
 User::User()
 {
 
+}
 
+User::~User()
+{
 
 }
+
 
 void User::ListUsers(std::string& FileName)
 {
@@ -88,8 +92,8 @@ bool User::FindUser(std::string& UserName)
       {
          return true;
       }
-      else
-         return false;
+   //   else
+     //    return false;
 
    } 
 
@@ -98,12 +102,22 @@ bool User::FindUser(std::string& UserName)
    return false;  
 }
 
+void User::CreateUser(std::string& UserName)
+{
+   std::ofstream FileWrite;
+
+   FileWrite.open("User.txt", std::ofstream::app);
+
+   if(!FileWrite)
+   {
+      std::cout << "File Not Found" <<'\n';  
+      return; 
+   }  
+   UserName += '\n';
+   FileWrite << UserName;
 
 
-
-
-
-
+}
 
 //bool FindUser(std::string& User);
 

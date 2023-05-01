@@ -8,8 +8,10 @@ using namespace std;
 
 char GetCompInput();
 char GetLoginInput(char& UserInput);
-char GetInitInput(char& Userinput);
-char GetPlayInput(char& Userinput);
+char GetInitInput(char& UserInput);
+char GetGameType(char& UserInput); 
+char GetPlayInput(char& UserInput);
+void GamePlay(char& UserInput);
 
 int main()
 {
@@ -36,55 +38,21 @@ int main()
             break; 
     */
               case 'p': 
-    
-                 while ( UserInput != 'Q')
-                 {
-              
-	             UserInput = GetPlayInput(UserInput) ;
-                     char CompChoice = GetCompInput();
+    		UserInput = GetGameType(UserInput); //0, 1 ,3
 
-               
-                     cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
-	
-                     switch(UserInput)
-                     {
-                         case 'Q':
-                             return 0;
-                         break;
-            
-               case 'R':
-                  if(CompChoice == 'P')
-                    cout << "You Lose" <<endl;
-                  else if(CompChoice == 'R')
-                    cout << "Tie" <<endl;
-                  else 
-                    cout <<"You Win" <<endl;
-               // else if (CompChoice == 'R')
-                   // cout << "Tie";
-               break;
-            
-               case 'P':
-                  if (CompChoice == 'S')
-                    cout << "You Lose" <<endl;
-                  else if(CompChoice == 'P')
-                    cout <<"Tie" <<endl;
-                  else 
-                    cout << "You Win" <<endl;
-               break;
-            
-               case 'S':
-                  if (CompChoice == 'R')
-                    cout << "You Lose" <<endl;
-                  else if(CompChoice == 'S')
-                    cout <<"Tie" <<endl;
-                  else 
-                    cout <<"You Win" <<endl;
-               break;
-        
-                     } 
-     
-                  }
-            break;
+		switch(UserInput)
+                {
+		
+                   case '0':
+		      while(UserInput != 'Q')
+                      {
+                         UserInput = GetPlayInput(UserInput);
+                         GamePlay(UserInput);
+
+                      }
+                   break;
+                }
+           break;
  
             case 'l':
                
@@ -103,8 +71,9 @@ int main()
         break;
 
 	case 'C':
-             user.ListUsers();
-
+            // user.ListUsers();
+             cin >> UserName;
+	     user.CreateUser(UserName);
 	break;
     }
     
@@ -141,6 +110,22 @@ char GetInitInput(char& UserInput)
        GetInitInput(UserInput);
   
     return UserInput;
+}
+
+char GetGameType(char& UserInput)
+{
+   cout <<"Please Enter GameMode:" <<'\n';
+   cout <<"   0 for Practice" <<'\n';
+   cout <<"   1 for Best of one" <<'\n';
+   cout <<"   3 for Best of three" <<'\n';
+
+   cin >> UserInput;
+
+   if(UserInput != '0' && UserInput != '1' && UserInput != '3')
+      GetGameType(UserInput);
+
+
+   return UserInput;
 }
 
 char GetPlayInput(char& UserInput)
@@ -181,6 +166,52 @@ char GetCompInput()
     return 'Q';
 }
 
+void GamePlay(char& UserInput)
+{
 
+              
+                    char CompChoice = GetCompInput();
+
+               
+                     cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
+	
+                     switch(UserInput)
+                     {
+                         case 'Q':
+                             return;
+                         break;
+            
+               case 'R':
+                  if(CompChoice == 'P')
+                    cout << "You Lose" <<endl;
+                  else if(CompChoice == 'R')
+                    cout << "Tie" <<endl;
+                  else 
+                    cout <<"You Win" <<endl;
+               // else if (CompChoice == 'R')
+                   // cout << "Tie";
+               break;
+            
+               case 'P':
+                  if (CompChoice == 'S')
+                    cout << "You Lose" <<endl;
+                  else if(CompChoice == 'P')
+                    cout <<"Tie" <<endl;
+                  else 
+                    cout << "You Win" <<endl;
+               break;
+            
+               case 'S':
+                  if (CompChoice == 'R')
+                    cout << "You Lose" <<endl;
+                  else if(CompChoice == 'S')
+                    cout <<"Tie" <<endl;
+                  else 
+                    cout <<"You Win" <<endl;
+               break;
+        
+                     } 
+     
+}
 
 

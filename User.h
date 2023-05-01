@@ -10,11 +10,11 @@ class User{
 public:
 
 User();
-
-void ListUsers(std::string& FileName);
+~User();
 void ListUsers();
+void ListUsers(std::string& FileName);
 bool FindUser(std::string& UserName);
-
+void CreateUser(std::string& UserName);
 };
 
 #endif // USER_H
