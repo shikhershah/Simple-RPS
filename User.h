@@ -13,7 +13,6 @@ User();
 ~User();
 void ListUsers();
 void ListUsers(std::string& FileName);
-void ListUsers();
 bool FindUser(std::string& UserName);
 void CreateUser(std::string& UserName);
 };

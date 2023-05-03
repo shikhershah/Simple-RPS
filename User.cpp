@@ -47,7 +47,6 @@ void User::ListUsers()
   std::ifstream FileRead;
 
    FileRead.open("User.txt");
-<<<<<<< HEAD
 
    if(!FileRead)
    {
@@ -55,15 +54,6 @@ void User::ListUsers()
       return;
    }  
 
-=======
-
-   if(!FileRead)
-   {
-      std::cout << "File Not Found" <<'\n';  
-      return;
-   }  
-
->>>>>>> a92741e... add List Users, Fix Login
    while(getline(FileRead, ReadText))
    {
       std::cout << ReadText <<'\n'; 
