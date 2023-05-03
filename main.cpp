@@ -51,6 +51,16 @@ int main()
 
                       }
                    break;
+                   case '1':
+                        GamePlay(UserInput);
+		   break;
+                   case '3':
+                      for(int i = 0; i < 3; i++)
+		      {
+                         GamePlay(UserInput);
+
+                      }
+		   break;
                 }
            break;
  
