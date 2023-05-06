@@ -133,7 +133,8 @@ char GetGameMode(char& UserInput)
    cout <<"   0 for Practice" <<'\n';
    cout <<"   1 for Best of one" <<'\n';
    cout <<"   3 for Best of three" <<'\n';
-   cout <<"   Q to quit" <<'\n';
+   if(UserInput == 'Q')
+      cout <<"   Q to quit" <<'\n';
 
    cin >> UserInput;
 
@@ -146,8 +147,9 @@ char GetGameMode(char& UserInput)
 char GetPlayInput(char& UserInput)
 {
    
-   cout <<"Please Enter R for rock, P for paper, S for Scissors, or Q to quit game" <<endl;
-    
+   cout <<"Please Enter R for rock, P for paper, S for Scissors" <<'\n';
+   if(UserInput == '0')
+    cout <<"Please Enter Q to quit practice" <<'\n';
    cin >> UserInput;
         
    // cout << Userinput <<endl;
@@ -191,7 +193,7 @@ void GamePlay(char& UserInput)
    switch(UserInput)
    {
       case 'Q':
-         return;
+        UserInput = GetGameMode(UserInput); 
       break;
             
       case 'R':
