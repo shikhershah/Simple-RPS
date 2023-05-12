@@ -7,19 +7,17 @@
 using namespace std;
 
 char GetCompInput();
-char GetLoginInput(char& UserInput);
-char GetInitInput(char& UserInput);
-char GetGameMode(char& UserInput); 
-char GetPlayInput(char& UserInput);
 void GamePlay(char& UserInput);
+
 
 int main()
 {
-   char UserInput;
+  // char UserInput;
    string UserName = "";
    User user; 
     
-   UserInput = GetLoginInput(UserInput);
+   //UserInput = GetLoginInput(UserInput);
+   User.GetLoginInput();
    switch(UserInput)
    {
       case 'L':

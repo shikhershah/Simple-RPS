@@ -121,3 +121,83 @@ void User::CreateUser(std::string& UserName)
 
 //bool FindUser(std::string& User);
 
+char User::GetUserInput()
+{
+   return UserInput;
+
+}
+
+void User::SetUserInput()
+{
+   char Input = '';
+
+   cin >> Input;
+
+   UserInput = Input;
+
+}
+
+
+//char User::GetLoginInput(char& UserInput)
+char User::GetLoginInput()
+{
+   cout <<"Please Enter L to login" <<'\n';
+   cout <<"Please Enter C to create Player" << '\n';
+   
+   SetUserInput();
+   //cin >> UserInput;
+
+   if(GetUserInput() != 'L' && GetUserInput() != 'C')
+      GetLoginInput();
+ 
+   return GetUserInput();
+}
+
+/*
+char User::GetInitInput(char& UserInput)
+{
+   
+   cout <<"Please Enter p to start game" << '\n';
+   cout << "Please Enter l to list players" << '\n';
+   cin >> UserInput;
+        
+   // cout << Userinput <<endl; debug
+  
+   if(UserInput != 'p' && UserInput != 'l' )
+      GetInitInput(UserInput);
+  
+   return UserInput;
+}
+
+char User::GetGameMode(char& UserInput)
+{
+   cout <<"\n Please Enter GameMode:" <<'\n';
+   cout <<"   0 for Practice" <<'\n';
+   cout <<"   1 for Best of one" <<'\n';
+   cout <<"   3 for Best of three" <<'\n';
+   if(UserInput == 'Q')
+      cout <<"   Q to quit" <<'\n';
+
+   cin >> UserInput;
+
+   if(UserInput != '0' && UserInput != '1' && UserInput != '3' && UserInput != 'Q' )
+      GetGameMode(UserInput);
+
+   return UserInput;
+}
+
+char User::GetPlayInput(char& UserInput)
+{
+   
+   cout <<"Please Enter R for rock, P for paper, S for Scissors" <<'\n';
+   if(UserInput == '0')
+    cout <<"Please Enter Q to quit practice" <<'\n';
+   cin >> UserInput;
+        
+   // cout << Userinput <<endl;
+  
+   if(UserInput != 'R' && UserInput != 'P' && UserInput != 'S' &&  UserInput != 'Q')
+      GetPlayInput(UserInput);
+  
+   return UserInput;
+}

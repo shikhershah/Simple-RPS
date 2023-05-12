@@ -1,4 +1,6 @@
 output
 .vscode/
 cscope.out
-
+build/
+CMakeLists.txt
+googletest/
