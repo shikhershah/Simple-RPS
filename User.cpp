@@ -2,7 +2,7 @@
 #include <fstream>
 
 #include "User.h"
-
+/*
 User::User()
 {
 
@@ -10,8 +10,59 @@ User::User()
 
 User::~User()
 {
+   delete User();
+}
+*/
+
+/***
+ *
+ *
+ *  Get and Set
+ *
+ *
+*/
+
+char User::GetUserInput()
+{
+   return UserInput;
 
 }
+
+void User::SetUserInput()
+{
+   char Input;
+
+   std::cin >> Input;
+
+   UserInput = Input;
+
+}
+
+
+bool User::GetIsPractice()
+{
+
+   return IsPractice;
+}
+
+void User::SetIsPractice()
+{
+
+   if(GetIsPractice() == false)
+      IsPractice = true;
+
+   else 
+      IsPractice = false;
+
+}
+
+/***
+ *
+ *
+ * Functions 
+ *
+ *
+*/
 
 
 void User::ListUsers(std::string& FileName)
@@ -71,7 +122,7 @@ void User::ListUsers()
 
 
 
-bool User::FindUser(std::string& UserName)
+bool User::FindUser(std::string UserName)// User::FindUser(std::string& UserName)
 {
   std::string ReadText;
   std::ifstream FileRead;
@@ -121,31 +172,16 @@ void User::CreateUser(std::string& UserName)
 
 //bool FindUser(std::string& User);
 
-char User::GetUserInput()
-{
-   return UserInput;
 
-}
-
-void User::SetUserInput()
-{
-   char Input = '';
-
-   cin >> Input;
-
-   UserInput = Input;
-
-}
 
 
 //char User::GetLoginInput(char& UserInput)
 char User::GetLoginInput()
 {
-   cout <<"Please Enter L to login" <<'\n';
-   cout <<"Please Enter C to create Player" << '\n';
+   std::cout <<"Please Enter L to login" <<'\n';
+   std::cout <<"Please Enter C to create Player" << '\n';
    
    SetUserInput();
-   //cin >> UserInput;
 
    if(GetUserInput() != 'L' && GetUserInput() != 'C')
       GetLoginInput();
@@ -153,51 +189,52 @@ char User::GetLoginInput()
    return GetUserInput();
 }
 
-/*
-char User::GetInitInput(char& UserInput)
+
+char User::GetInitInput()
 {
    
-   cout <<"Please Enter p to start game" << '\n';
-   cout << "Please Enter l to list players" << '\n';
-   cin >> UserInput;
+   std::cout <<"Please Enter p to start game" << '\n';
+   std::cout << "Please Enter l to list players" << '\n';
+   
+   SetUserInput();
         
-   // cout << Userinput <<endl; debug
+   if(GetUserInput() != 'p' && GetUserInput() != 'l' )
+      GetInitInput();
   
-   if(UserInput != 'p' && UserInput != 'l' )
-      GetInitInput(UserInput);
-  
-   return UserInput;
+   return GetUserInput();
 }
 
-char User::GetGameMode(char& UserInput)
+char User::GetGameMode()
 {
-   cout <<"\n Please Enter GameMode:" <<'\n';
-   cout <<"   0 for Practice" <<'\n';
-   cout <<"   1 for Best of one" <<'\n';
-   cout <<"   3 for Best of three" <<'\n';
-   if(UserInput == 'Q')
-      cout <<"   Q to quit" <<'\n';
+   std::cout <<"\n Please Enter GameMode:" <<'\n';
+   std::cout <<"   0 for Practice" <<'\n';
+   std::cout <<"   1 for Best of one" <<'\n';
+   std::cout <<"   3 for Best of three" <<'\n';
+   
+   std::cout <<"   Q to quit" <<'\n';
 
-   cin >> UserInput;
+   SetUserInput();
 
-   if(UserInput != '0' && UserInput != '1' && UserInput != '3' && UserInput != 'Q' )
-      GetGameMode(UserInput);
+   if(GetUserInput() != '0' && GetUserInput() != '1' && GetUserInput() != '3' && GetUserInput() != 'Q' )
+      GetGameMode();
 
-   return UserInput;
+   return GetUserInput();
 }
 
-char User::GetPlayInput(char& UserInput)
+char User::GetPlayInput()
 {
    
-   cout <<"Please Enter R for rock, P for paper, S for Scissors" <<'\n';
-   if(UserInput == '0')
-    cout <<"Please Enter Q to quit practice" <<'\n';
-   cin >> UserInput;
-        
+   std::cout <<"Please Enter R for rock, P for paper, S for Scissors" <<'\n';
+   if(GetIsPractice() == true)
+      std::cout <<"Please Enter q to quit practice" <<'\n';
+       
+   SetUserInput();
    // cout << Userinput <<endl;
   
-   if(UserInput != 'R' && UserInput != 'P' && UserInput != 'S' &&  UserInput != 'Q')
-      GetPlayInput(UserInput);
+   if(GetUserInput() != 'R' && GetUserInput() != 'P' && GetUserInput() != 'S' &&  GetUserInput() != 'q')
+      GetPlayInput();
   
    return UserInput;
 }
+
+

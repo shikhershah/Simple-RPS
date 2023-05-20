@@ -8,21 +8,41 @@ class User{
 
 private:
    char UserInput;
+   bool IsPractice = false;
+
 public:
 
-   User();
-   ~User();
+   //User();
+   //~User();
+
+   /***
+    *
+    *
+    */
+   char GetUserInput();
+   void SetUserInput();
+
+   bool GetIsPractice();
+   void SetIsPractice();
+
+
+   /***
+    *
+    * Functions
+    *
+    * 
+   */
    void ListUsers();
    void ListUsers(std::string& FileName);
-   bool FindUser(std::string& UserName);
+   bool FindUser(std::string UserName);
    void CreateUser(std::string& UserName);
 
-   char GetUserInput();
-   void SetUserInput(char Input);
-
    char GetLoginInput();
-
-  // char GetLoginInput(char& UserInput);
+   char GetInitInput();
+   char GetGameMode();
+   char GetPlayInput();
+   //void GamePlay();
+   // char GetLoginInput(char& UserInput);
   /* char GetInitInput(char& UserInput);
    char GetGameMode(char& UserInput); 
    char GetPlayInput(char& UserInput);*/

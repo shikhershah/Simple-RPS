@@ -4,62 +4,67 @@
 
 #include "User.h"
 
-using namespace std;
 
 char GetCompInput();
-void GamePlay(char& UserInput);
+void GamePlay(char UserInput);
 
 
 int main()
 {
   // char UserInput;
-   string UserName = "";
+   std::string UserName = "";
    User user; 
-    
+   
+
+   
    //UserInput = GetLoginInput(UserInput);
-   User.GetLoginInput();
-   switch(UserInput)
+   user.GetLoginInput();
+   switch(user.GetUserInput())
    {
       case 'L':
    
-      cout << "Please Enter User Name" << '\n';
-      cin >> UserName;
+      std::cout << "Please Enter User Name" << '\n';
+      std::cin >> UserName;
            
       if(user.FindUser(UserName))
       {
          //Add while loop to continue till tired of playing
-         UserInput =  GetInitInput(UserInput);
-         switch(UserInput)
+         user.GetInitInput();//p || l
+         switch(user.GetUserInput())
          {
+      
             case 'p': 
     	     //  UserInput = GetGameMode(UserInput); //0, 1 ,3
-
-               while (UserInput != 'Q')
+            
+               while (user.GetUserInput() != 'Q')
                {
-                  UserInput = GetGameMode(UserInput);
-	          switch(UserInput)
+
+                  user.GetGameMode();//0 || 1 || 3
+	          switch(user.GetUserInput())
                   {
 		
                      case '0':
-	                while(UserInput != 'Q')
+                        user.SetIsPractice();
+	                while(user.GetUserInput() != 'q')
                         {
-                           UserInput = GetPlayInput(UserInput);
-                           GamePlay(UserInput);
+                           user.GetPlayInput();
+                           GamePlay(user.GetUserInput());
 
                         }
+                        user.SetIsPractice();
                      break;
                
                      case '1':
-                        UserInput = GetPlayInput(UserInput);
-                        GamePlay(UserInput);
+                        user.GetPlayInput();
+                        GamePlay(user.GetUserInput());
 	             break;
                   
                      case '3':
                   
                         for(int i = 0; i < 3; i++)
 		        {
-                           UserInput = GetPlayInput(UserInput);
-                           GamePlay(UserInput);
+                           user.GetPlayInput();
+                           GamePlay(user.GetUserInput());
 
                         }
 	             break;
@@ -71,21 +76,22 @@ int main()
                
 	       user.ListUsers();	
 	    break;
-           /*    default:
+            default:
 
-		cout << "please Enter p or l" <<'\n';
-               break;
-    */
+               std::cout << "please Enter p or l" <<'\n';
+            break;
+    
          }
+        
       }
       else
-         cout << "Please enter different name:" << '\n' ;
+         std::cout << "Please enter different name:" << '\n' ;
 	         
       break;
 
       case 'C':
             // user.ListUsers();
-         cin >> UserName;
+         std::cin >> UserName;
 	 user.CreateUser(UserName);
       break;
    }
@@ -97,6 +103,7 @@ int main()
 }
 
 
+/*
 char GetLoginInput(char& UserInput)
 {
    cout <<"Please Enter L to login" <<'\n';
@@ -157,7 +164,7 @@ char GetPlayInput(char& UserInput)
   
    return UserInput;
 }
-
+*/
 char GetCompInput()
 {
    srand (time(NULL));
@@ -181,46 +188,46 @@ char GetCompInput()
    return 'Q';
 }
 
-void GamePlay(char& UserInput)
+void GamePlay(char UserInput)
 {
-    
+   User user; 
    char CompChoice = GetCompInput();
             
-   cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
+   std::cout << "Userinput:" <<UserInput << '\n'; // << ' ' << "CompChoice:" <<CompChoice<<endl;
 	
    switch(UserInput)
    {
       case 'Q':
-        UserInput = GetGameMode(UserInput); 
+        user.GetGameMode(); 
       break;
             
       case 'R':
          if(CompChoice == 'P')
-            cout << "You Lose" <<'\n';
+            std::cout << "You Lose" <<'\n';
          else if(CompChoice == 'R')
-            cout << "Tie" <<endl;
+            std::cout << "Tie" <<'\n';
          else 
-            cout <<"You Win" <<'\n';
+            std::cout <<"You Win" <<'\n';
                // else if (CompChoice == 'R')
                    // cout << "Tie";
       break;
             
       case 'P':
          if (CompChoice == 'S')
-            cout << "You Lose" <<'\n';
+            std::cout << "You Lose" <<'\n';
          else if(CompChoice == 'P')
-            cout <<"Tie" <<'\n';
+            std::cout <<"Tie" <<'\n';
          else 
-            cout << "You Win" <<'\n';
+            std::cout << "You Win" <<'\n';
       break;
             
       case 'S':
          if (CompChoice == 'R')
-            cout << "You Lose" <<'\n';
+            std::cout << "You Lose" <<'\n';
          else if(CompChoice == 'S')
-            cout <<"Tie" <<'\n';
+            std::cout <<"Tie" <<'\n';
          else 
-            cout <<"You Win" <<'\n';
+            std::cout <<"You Win" <<'\n';
       break;
         
    } 
