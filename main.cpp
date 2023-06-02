@@ -25,10 +25,10 @@ int main()
    
       std::cout << "Please Enter User Name" << '\n';
       std::cin >> UserName;
-           
+      std::cout <<'\n';
+
       if(user.FindUser(UserName))
       {
-         //Add while loop to continue till tired of playing
          user.GetInitInput();//p || l
          switch(user.GetUserInput())
          {
@@ -103,68 +103,6 @@ int main()
 }
 
 
-/*
-char GetLoginInput(char& UserInput)
-{
-   cout <<"Please Enter L to login" <<'\n';
-   cout <<"Please Enter C to create Player" << '\n';
-   
-   cin >> UserInput;
-   if(UserInput != 'L' && UserInput != 'C')
-      GetLoginInput(UserInput);
- 
-
-   return UserInput; 
-}
-
-char GetInitInput(char& UserInput)
-{
-   
-   cout <<"Please Enter p to start game" << '\n';
-   cout << "Please Enter l to list players" << '\n';
-   cin >> UserInput;
-        
-   // cout << Userinput <<endl; debug
-  
-   if(UserInput != 'p' && UserInput != 'l' )
-      GetInitInput(UserInput);
-  
-   return UserInput;
-}
-
-char GetGameMode(char& UserInput)
-{
-   cout <<"\n Please Enter GameMode:" <<'\n';
-   cout <<"   0 for Practice" <<'\n';
-   cout <<"   1 for Best of one" <<'\n';
-   cout <<"   3 for Best of three" <<'\n';
-   if(UserInput == 'Q')
-      cout <<"   Q to quit" <<'\n';
-
-   cin >> UserInput;
-
-   if(UserInput != '0' && UserInput != '1' && UserInput != '3' && UserInput != 'Q' )
-      GetGameMode(UserInput);
-
-   return UserInput;
-}
-
-char GetPlayInput(char& UserInput)
-{
-   
-   cout <<"Please Enter R for rock, P for paper, S for Scissors" <<'\n';
-   if(UserInput == '0')
-    cout <<"Please Enter Q to quit practice" <<'\n';
-   cin >> UserInput;
-        
-   // cout << Userinput <<endl;
-  
-   if(UserInput != 'R' && UserInput != 'P' && UserInput != 'S' &&  UserInput != 'Q')
-      GetPlayInput(UserInput);
-  
-   return UserInput;
-}
-*/
 char GetCompInput()
 {
    srand (time(NULL));
